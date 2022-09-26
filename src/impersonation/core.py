@@ -10,21 +10,22 @@ from impersonation import utils
 class _run_as:
     """Context manager to run routines as given user."""
 
-    def __init__(self, username):
-        self.username = username
+    def __init__(self, uid, gid):
+        self.uid = uid
+        self.gid = gid
 
     def __enter__(self):
-        os.setuid(utils.user_uid(self.username))
-        os.setgid(utils.user_gid(self.username))
+        os.setuid(self.uid)
+        os.setgid(self.gid)
 
     def __exit__(self, exc_type, exc_value, exc_traceback):
         pass
 
 
-def _target(conn, fn, username, *args, **kwargs):
+def _target(conn, fn, ids, *args, **kwargs):
     # run routine under given username
     try:
-        with _run_as(username):
+        with _run_as(*ids):
             ret = fn.__wrapped__(*args, **kwargs)
     except Exception as ex:
         ret = None
@@ -59,8 +60,9 @@ def impersonate(arg=None, username=None):
             cls_name = fn.__qualname__.split('.')[0]
             cls = vars(sys.modules[fn.__module__])[cls_name]
             func = getattr(cls, fn.__name__)
-            target_args = (c_conn, func, username, *args)
 
+            uid, gid = utils.pw_pair(username=username)
+            target_args = (c_conn, func, (uid, gid), *args)
             p = ctx.Process(target=_target, args=target_args, kwargs=kwargs)
             p.start()
             ret, err = p_conn.recv()
