@@ -57,7 +57,7 @@ def impersonate(arg=None, username=None):
             if not username or username == utils.system_username():
                 return fn(*args, **kwargs)
 
-            cls_name = fn.__qualname__.split('.')[0]
+            cls_name = fn.__qualname__.split(".")[0]
             cls = vars(sys.modules[fn.__module__])[cls_name]
             func = getattr(cls, fn.__name__)
 
