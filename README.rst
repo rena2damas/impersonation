@@ -19,9 +19,9 @@ impersonation
     :alt: license: MIT
 
 A utility that allows a certain routine to run under a given user. To achieve this, a
-process will run under the ```uid``` and ```gid``` of the intended user. For that
-reason, it is a requirement that the running process has ```SETUID``` and
-```SETGID``` capabilities.
+process will run under the ``uid`` and ``gid`` of the intended user. For that
+reason, it is a requirement that the running process has ``SETUID`` and
+``SETGID`` capabilities.
 
 Features
 ========
