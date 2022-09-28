@@ -57,8 +57,8 @@ A simple example on how to work with a ``Flask`` application:
         def __init__(self, prefix=""):
             self.prefix = prefix
 
-        def printer1(self, printer):
-            print(f"{self.prefix}{prefix}")
+        def printer1(self, string):
+            print(f"{self.prefix}{string}")
 
         @staticmethod
         def printer2(string):
