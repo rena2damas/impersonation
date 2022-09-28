@@ -50,6 +50,7 @@ A simple example on how to work with a ``Flask`` application:
     def printer(string):
         print(string)
 
+
     # ... and classes
     @impersonate("other")
     class Printer:
