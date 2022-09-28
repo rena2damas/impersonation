@@ -47,7 +47,9 @@ def impersonate(arg=None, username=None):
         # apply decorator to each method
         if isinstance(fn, type):
             for name, attr in fn.__dict__.items():
-                if callable(attr) and not re.match(r"__\w*__", name):
+                if isinstance(attr, (staticmethod, classmethod)):
+                    setattr(fn, name, type(attr)(decorator(attr.__func__)))
+                elif callable(attr) and not re.match(r"__\w*__", name):
                     setattr(fn, name, decorator(attr))
             return fn
 
