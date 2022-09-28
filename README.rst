@@ -26,7 +26,7 @@ reason, it is a requirement that the running process has ```SETUID``` and
 Features
 ========
 * decorator for instance method
-* decorator for ```classmethod``` and ```staticmethod```
+* decorator for ``classmethod`` and ``staticmethod``
 * decorator for classes
 
 Installation
@@ -51,7 +51,7 @@ A simple example on how to work with a ``Flask`` application:
         print(string)
 
 
-    # and classes
+    # ... and classes
     @impersonate("other")
     class Printer:
         def __init__(self, prefix=""):
