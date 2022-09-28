@@ -43,6 +43,27 @@ A simple example on how to work with a ``Flask`` application:
 
 .. code-block:: python
 
+    from impersonation import impersonate
+
+    # it works on functions
+    @impersonate("other")
+    def printer(string):
+        print(string)
+
+
+    # and classes
+    @impersonate("other")
+    class Printer:
+        def __init__(self, prefix=""):
+            self.prefix = prefix
+
+        def printer1(self, printer):
+            print(f"{self.prefix}{prefix}")
+
+        @staticmethod
+        def printer2(string):
+            print(string)
+
 Tests & linting 🚥
 ===============
 Run tests with ``tox``:
