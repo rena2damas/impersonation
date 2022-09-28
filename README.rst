@@ -25,7 +25,7 @@ reason, it is a requirement that the running process has ```SETUID``` and
 
 Features
 ========
-* decorator for instance method
+* decorator for instance methods
 * decorator for ``classmethod`` and ``staticmethod``
 * decorator for classes
 
