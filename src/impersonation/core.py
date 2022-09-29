@@ -56,14 +56,14 @@ def impersonate(arg=None, username=None):
         @functools.wraps(fn)
         def wrapper(*args, **kwargs):
             # call wrapped function if no user impersonation
-            if not username or username == utils.system_username():
+            if not username or str(username) == utils.system_username():
                 return fn(*args, **kwargs)
 
             cls_name = fn.__qualname__.split(".")[0]
             cls = vars(sys.modules[fn.__module__])[cls_name]
             func = getattr(cls, fn.__name__)
 
-            uid, gid = utils.pw_pair(username=username)
+            uid, gid = utils.pw_pair(username=str(username))
             target_args = (c_conn, func, (uid, gid), *args)
             p = ctx.Process(target=_target, args=target_args, kwargs=kwargs)
             p.start()
