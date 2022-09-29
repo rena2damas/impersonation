@@ -65,7 +65,7 @@ A simple example on how to work with a ``Flask`` application:
             print(string)
 
 Tests & linting 🚥
-===============
+==================
 Run tests with ``tox``:
 
 .. code-block:: bash
