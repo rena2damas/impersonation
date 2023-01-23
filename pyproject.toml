@@ -9,7 +9,7 @@ packages = [
     { include = "*", from = "src" }
 ]
 homepage = ""
-repository = "https://github.com/rena2damas/impersonation"
+repository = "https://github.com/codectl/impersonation"
 documentation = ""
 keywords = [
     "process",
@@ -34,12 +34,12 @@ python = "^3.7"
 
 [tool.poetry.dev-dependencies]
 coverage = "^7.0.5"
-pre-commit = "^2.20.0"
+pre-commit = "^2.21.0"
 pytest = "^7.2.1"
 pytest-mock = "^3.10.0"
 
 [tool.poetry.urls]
-issues = "https://github.com/rena2damas/impersonation/issues"
+issues = "https://github.com/codectl/impersonation/issues"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
