@@ -45,6 +45,7 @@ A simple example on how to work with a ``Flask`` application:
 
     from impersonation import impersonate
 
+
     # it works on functions
     @impersonate("other")
     def printer(string):
