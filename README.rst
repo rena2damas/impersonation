@@ -50,13 +50,13 @@ A simple example on how to work with a ``Flask`` application:
 
 
     # it works on functions
-    @impersonate("other")
+    @impersonate("username")
     def printer(string):
         print(string)
 
 
     # ... and classes
-    @impersonate("other")
+    @impersonate("username")
     class Printer:
         def __init__(self, prefix=""):
             self.prefix = prefix
