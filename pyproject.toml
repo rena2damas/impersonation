@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "impersonation"
-version = "0.1.2"
+version = "1.0.0"
 description = "Utility for user impersonation by running instructions under given user"
 authors = ["Renato Damas <rena2damas@gmail.com>"]
 license = "MIT"
