@@ -41,14 +41,10 @@ runs:
         python poetry.py -y
 
     - name: Update PATH
-      if: ${{ runner.os != 'Windows' }}
       shell: bash
-      run: echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-    - name: Update Path for Windows
-      if: ${{ runner.os == 'Windows' }}
-      shell: bash
-      run: echo "$APPDATA\Python\Scripts" >> $GITHUB_PATH
+      run: |
+        bin=$(${{ runner.os == 'Windows' }} && echo Scripts || echo bin)
+        python -c "import os, site; print(os.path.join(site.getuserbase(), '$bin'))" >> $GITHUB_PATH
 
     - name: Configure poetry
       shell: bash
