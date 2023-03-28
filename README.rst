@@ -11,6 +11,9 @@ impersonation
 .. image:: https://codecov.io/gh/codectl/impersonation/branch/master/graph/badge.svg
     :target: https://app.codecov.io/gh/codectl/impersonation/branch/master
     :alt: codecov
+.. image:: https://img.shields.io/pypi/pyversions/impersonation
+    :target: https://pypi.org/project/impersonation
+    :alt: Python compatibility
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
     :alt: code style: black
