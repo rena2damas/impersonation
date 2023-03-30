@@ -2,6 +2,7 @@ import functools
 import os
 import re
 import sys
+import warnings
 from multiprocessing import Pipe, get_context
 
 from impersonation import utils
@@ -55,8 +56,12 @@ def impersonate(arg=None, username=None):
 
         @functools.wraps(fn)
         def wrapper(*args, **kwargs):
-            # call wrapped function if no user impersonation
-            if not username or str(username) == utils.system_username():
+            # call wrapped function if user cannot be impersonated
+            try:
+                if not username or str(username) == utils.pw_username():
+                    return fn(*args, **kwargs)
+            except OSError:
+                warnings.warn("OS not supported: decorated fn cannot be impersonated.")
                 return fn(*args, **kwargs)
 
             cls_name = fn.__qualname__.split(".")[0]
