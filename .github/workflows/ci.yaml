@@ -54,6 +54,6 @@ jobs:
           os: ubuntu-latest
       - name: Run coverage with tox
         shell: bash
-        run: tox -e coverage -- -vv -p no:warnings -q
+        run: tox -e coverage -- -p no:warnings -q
       - name: Submit coverage to codecov
         uses: codecov/codecov-action@v3
