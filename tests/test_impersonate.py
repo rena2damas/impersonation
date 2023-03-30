@@ -1,3 +1,5 @@
+import sys
+
 import pytest
 
 from impersonation import impersonate
@@ -70,6 +72,7 @@ class FooClass3:
         return self.arg
 
 
+@pytest.mark.skipif("pwd" not in sys.modules, reason="requires 'pwd'")
 def test_impersonate_with_args(mocker):
     with pytest.raises(KeyError) as ex:
         FooClass3().method()
