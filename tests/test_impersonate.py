@@ -71,9 +71,11 @@ class FooClass3:
 
 
 def test_impersonate_with_args(mocker):
-    with pytest.raises(KeyError):
+    with pytest.raises(KeyError) as ex:
         FooClass3().method()
+    assert "name not found: 'fake-user'" in str(ex.value)
 
     mocker.patch("impersonation.utils.pw_pair", return_value=(0, 0))
-    with pytest.raises(PermissionError):
+    with pytest.raises(PermissionError) as ex:
         FooClass3().method()
+    assert "Operation not permitted" in str(ex.value)
