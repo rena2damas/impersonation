@@ -33,7 +33,7 @@ classifiers = [
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
-coverage = "^7.2.3"
+coverage = "^7.2.4"
 pre-commit = "^3.2.2"
 pytest = "^7.3.0"
 pytest-mock = "^3.10.0"
