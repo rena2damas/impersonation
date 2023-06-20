@@ -36,7 +36,7 @@ python = "^3.8"
 coverage = "^7.2.7"
 pre-commit = "^3.3.2"
 pytest = "^7.3.2"
-pytest-mock = "^3.10.0"
+pytest-mock = "^3.11.1"
 
 [tool.poetry.urls]
 issues = "https://github.com/codectl/impersonation/issues"
